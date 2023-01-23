@@ -1,5 +1,5 @@
 import Board from "./components/Board/Board"
-import Sidenav from "./components/Sidenav"
+import Sidenav from "./components/SideNav/Sidenav"
 
 function App() {
  
