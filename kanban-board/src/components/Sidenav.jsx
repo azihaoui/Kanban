@@ -8,6 +8,15 @@ function Sidenav() {
         <ul>
             <li>Kanban board</li>
         </ul>
+        <ul>
+            <li>Kanban board</li>
+        </ul>
+        <ul>
+            <li>Kanban board</li>
+        </ul>
+        <ul>
+            <li>Kanban board</li>
+        </ul>
     </div>
   )
 }
