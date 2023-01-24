@@ -16,8 +16,33 @@ const ProjectProvider = ({children}) => {
         setCurrentIndex(index)
     }
 
+    function addNewProject (title) {
+        if (!title) return
+
+    const newProject = {
+        title: title,
+        id: projects.length + 1,
+        board: [
+            {
+                name: 'Todo',
+                tickets: [],
+            },
+            {
+                name: 'Todo',
+                tickets: [],
+            },
+            {
+                name: 'Todo',
+                tickets: [],
+            },
+        ],
+    }
+    setProjects([...projects, newProject])
+    setCurrentIndex(projects.length)
+
     const value = {
         changeBoard: changeBoard,
+        addNewProject: addNewProject,
         currentProject: currentProject,
         projects: projects,
     }
@@ -28,5 +53,5 @@ const ProjectProvider = ({children}) => {
         </ProjectContext.Provider>
     )
 }
-
+}
 export default ProjectProvider

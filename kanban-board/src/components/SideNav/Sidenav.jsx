@@ -2,11 +2,12 @@ import React from 'react'
 import './Sidenav.scss'
 import {useProject} from '../../context/ProjectContex'
 import { projectsData } from '../../context/projects-data'
+import { useState } from 'react'
 
 function Sidenav() {
 
-    const {projects, currentProject, changeBoard} = useProject()
-    console.log(projects)
+    const {projects, currentProject, addNewProject, changeBoard} = useProject()
+    const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className='sidenav'>
@@ -22,7 +23,25 @@ function Sidenav() {
                 {project.title}
               </li>
             ))}
+            <li className='create-board' 
+            onClick={()=> {
+              setIsOpen((currentValue) => !currentValue)
+            }} 
+            >
+              Create new board +
+              </li>
+
         </ul>
+        {isOpen && 
+            <div className='create-project'>
+                <input type="text" />
+                <button 
+                  onClick={()=> {
+                    addNewProject('hej')
+              
+                  }}
+                >Create Project</button>
+            </div>}
     </div>
   )
 }
