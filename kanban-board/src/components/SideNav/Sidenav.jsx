@@ -8,6 +8,7 @@ function Sidenav() {
 
     const {projects, currentProject, addNewProject, changeBoard} = useProject()
     const [isOpen, setIsOpen] = useState(false)
+    const [text, setText] = useState('')
 
   return (
     <div className='sidenav'>
@@ -34,13 +35,20 @@ function Sidenav() {
         </ul>
         {isOpen && 
             <div className='create-project'>
-                <input type="text" />
+                <input 
+                    type="text" 
+                    value={text}
+                    onChange={(e)=> setText(e.target.value)}
+                  />
                 <button 
-                  onClick={()=> {
-                    addNewProject('hej')
-              
+                    onClick={()=> {
+                      addNewProject(text)
+                      setIsOpen(false)
+                      setText('')
                   }}
-                >Create Project</button>
+                >
+                  Create Project
+                </button>
             </div>}
     </div>
   )

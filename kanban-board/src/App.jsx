@@ -1,13 +1,17 @@
 import Board from "./components/Board/Board"
 import Sidenav from "./components/SideNav/Sidenav"
+import Navbar from "./components/Navbar/Navbar"
 
 function App() {
  
 
   return (
     <div className="App">
-      <Sidenav />
-      <Board />
+      <Navbar />
+      <main>
+          <Sidenav />
+          <Board />
+      </main>
     </div>
   )
 }
