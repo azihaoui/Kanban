@@ -1,6 +1,7 @@
 import Board from "./components/Board/Board"
 import Sidenav from "./components/SideNav/Sidenav"
 import Navbar from "./components/Navbar/Navbar"
+import CreateTicket from "./components/CreateTicket/CreateTicket"
 
 function App() {
  
@@ -12,6 +13,7 @@ function App() {
           <Sidenav />
           <Board />
       </main>
+      <CreateTicket />
     </div>
   )
 }
