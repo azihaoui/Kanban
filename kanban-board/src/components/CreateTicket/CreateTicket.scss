@@ -38,10 +38,21 @@
             resize: vertical;
             max-height: 220px ;
             color: var(--text);
+            margin-bottom: 8px;
 
             &:focus {
                 border-color: var(--primary);
             }
         }
+    }
+
+    button {
+        background-color: var(--primary);
+        padding: 10px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
     }
 }

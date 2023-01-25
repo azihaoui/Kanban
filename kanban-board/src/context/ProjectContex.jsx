@@ -11,7 +11,8 @@ const ProjectProvider = ({children}) => {
     const [projects, setProjects] = useState(projectsData)
     const [currentIndex, setCurrentIndex] = useState(0)
     const currentProject = projects[currentIndex]
-
+console.log('hej')
+console.log(children)
     function changeBoard(index) {
         setCurrentIndex(index)
     }
@@ -39,12 +40,19 @@ const ProjectProvider = ({children}) => {
     }
     setProjects([...projects, newProject])
     setCurrentIndex(projects.length)
+    }
+
+    function addTicket(ticket) {
+        projects[currentIndex].board[0].tickets.push(ticket)
+        setProjects([...projects])
+    }
 
     const value = {
-        changeBoard: changeBoard,
-        addNewProject: addNewProject,
-        currentProject: currentProject,
-        projects: projects,
+        addTicket,
+        changeBoard,
+        addNewProject,
+        currentProject,
+        projects,
     }
 
     return (
@@ -53,5 +61,5 @@ const ProjectProvider = ({children}) => {
         </ProjectContext.Provider>
     )
 }
-}
+
 export default ProjectProvider

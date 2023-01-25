@@ -1,8 +1,9 @@
 import React from 'react'
 import {useProject} from '../../context/ProjectContex'
 import './Navbar.scss'
+import {ChevronDown} from 'react-feather'
 
-function Navbar() {
+function Navbar({setShowAddTicket}) {
 const {currentProject} = useProject()
 
   return (
@@ -11,9 +12,14 @@ const {currentProject} = useProject()
         <h1>Kanban</h1>
       </div>
       <div className="navbar-heading">
-        <h2>{currentProject.title}</h2>
+          <h2>{currentProject.title}</h2>
+          <div className="navbar-heading-chevron">
+            <ChevronDown />
+        </div>
       </div>
-      <button>Add new ticket</button>
+      <button onClick={()=> setShowAddTicket(true)}>
+            Add new ticket
+        </button>
     </nav>
   )
 }
