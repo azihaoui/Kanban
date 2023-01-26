@@ -1,27 +1,28 @@
-import React from 'react'
-import {useProject} from '../../context/ProjectContex'
-import './Navbar.scss'
-import {ChevronDown} from 'react-feather'
+import React from "react";
+import { useProject } from "../../context/ProjectContex";
+import "./Navbar.scss";
+import { ChevronDown } from "react-feather";
 
-function Navbar({setShowAddTicket}) {
-const {currentProject} = useProject()
+function Navbar({ setShowAddTicket, setShowDropDown }) {
+  const { currentProject } = useProject();
 
   return (
-    <nav className='navbar'>
-      <div className='navbar-logo-container'>
+    <nav className="navbar">
+      <div className="navbar-logo-container">
         <h1>Kanban</h1>
       </div>
       <div className="navbar-heading">
-          <h2>{currentProject.title}</h2>
-          <div className="navbar-heading-chevron">
-            <ChevronDown />
+        <h2>{currentProject.title}</h2>
+        <div
+          className="navbar-heading-chevron"
+          onClick={() => setShowDropDown(true)}
+        >
+          <ChevronDown />
         </div>
       </div>
-      <button onClick={()=> setShowAddTicket(true)}>
-            Add new ticket
-        </button>
+      <button onClick={() => setShowAddTicket(true)}>Add new ticket</button>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
