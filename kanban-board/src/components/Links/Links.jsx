@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Links.scss";
 import { useProject } from "../../context/ProjectContex";
+import { Layout, Plus } from "react-feather";
 
 function Links() {
   const { projects, currentProject, addNewProject, changeBoard } = useProject();
@@ -19,6 +20,7 @@ function Links() {
             key={project.id}
             className={currentProject.id === project.id && "active"}
           >
+            <Layout />
             {project.title}
           </li>
         ))}
@@ -28,7 +30,8 @@ function Links() {
             setIsOpen((currentValue) => !currentValue);
           }}
         >
-          Create new board +
+          <Plus />
+          Create new board
         </li>
       </ul>
       {isOpen && (

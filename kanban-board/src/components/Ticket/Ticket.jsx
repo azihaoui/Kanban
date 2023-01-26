@@ -1,23 +1,30 @@
-import React, {useState} from 'react'
-import './Ticket.scss'
+import React, { useState } from "react";
+import "./Ticket.scss";
 
-function Ticket({item}) {
-    const [showList, setShowList] = useState(false)
+function Ticket({ item, provided, snapshot }) {
+  const [showList, setShowList] = useState(false);
 
   return (
-    <div className='ticket' onClick={()=> setShowList((currentValue) => !currentValue)}>
-        <h3 className='heading-m'>{item.title}</h3>
-        <p className='body-m'>{item.description}</p>
-        <p className='body-m'>{item.tasks.length} subtasks</p>
-        {showList && (
-            <ul>
-                {item.tasks.map((task)=> ( 
-                    <li key={task}>{task}</li>
-                ))}
-            </ul>
-        )}
+    <div
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      active={snapshot.isDragging.toString()}
+      className="ticket"
+      onClick={() => setShowList((currentValue) => !currentValue)}
+    >
+      <h3 className="heading-m">{item.title}</h3>
+      <p className="body-m">{item.description}</p>
+      <p className="body-m">{item.tasks.length} subtasks</p>
+      {showList && (
+        <ul>
+          {item.tasks.map((task) => (
+            <li key={task}>{task}</li>
+          ))}
+        </ul>
+      )}
     </div>
-  )
+  );
 }
 
-export default Ticket
+export default Ticket;

@@ -1,13 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.scss'
-import ProjectProvider from './context/ProjectContex'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.scss";
+import ProjectProvider from "./context/ProjectContex";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-        <ProjectProvider>
-          <App />
-      </ProjectProvider>
-  </React.StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <ProjectProvider>
+    <App />
+  </ProjectProvider>
+);
