@@ -38,14 +38,13 @@ export default function Board() {
                     {...provided.droppableProps}
                     ref={provided.innerRef}
                     active={snapshot.isDraggingOver.toString()}
-                    key={column.name}
                     className="board-column"
                   >
                     <div className="board-title">
                       <div className={"board-title-icon " + column.name}></div>
                       <h4>{column.name}</h4>
                     </div>
-                    {column.tickets.map((ticket) => {
+                    {column.tickets.map((ticket, index) => {
                       return (
                         <Draggable
                           key={ticket.id}
