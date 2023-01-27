@@ -6,20 +6,20 @@ import { useState } from "react";
 import ProjectsDropDown from "./components/ProjectsDropDown/ProjectsDropDown";
 
 function App() {
-  const [showAddTicket, setAddShowTicket] = useState(false);
+  const [showAddTicket, setShowAddTicket] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
 
   return (
     <div className="App">
       <Navbar
-        setShowAddTicket={setAddShowTicket}
+        setShowAddTicket={setShowAddTicket}
         setShowDropDown={setShowDropDown}
       />
       <main>
         <Sidenav />
         <Board />
       </main>
-      {showAddTicket && <CreateTicket setAddShowTicket={setAddShowTicket} />}
+      {showAddTicket && <CreateTicket setShowAddTicket={setShowAddTicket} />}
       {showDropDown && <ProjectsDropDown setShowDropDown={setShowDropDown} />}
     </div>
   );
